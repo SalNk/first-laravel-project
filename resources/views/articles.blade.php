@@ -16,6 +16,4 @@
         <p>Il n'y a aucun post dans votre base de données</p>
     @endif
 
-
-
 @endsection
