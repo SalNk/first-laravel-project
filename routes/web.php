@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\ArticleController;
+use App\Http\Controllers\MemberController;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\TestController;
@@ -17,14 +18,23 @@ use Illuminate\Support\Facades\Route;
 |bre
 */
 
-Route::get('/', [PostController::class, 'index'])->name('welcome');
-Route::get('/posts/{id}', [PostController::class, 'show'])->name('posts.show');
-Route::get('/contact', [PostController::class, 'contact'])->name('contact');
-Route::get('/test', function () {
-    return view('test');
-});
+// Route::get('/', [PostController::class, 'index'])->name('welcome');
+// Route::get('/posts/{id}', [PostController::class, 'show'])->name('posts.show');
+// Route::get('/contact', [PostController::class, 'contact'])->name('contact');
+// Route::get('/test', function () {
+//     return view('test');
+// });
 
 // Practice
+Route::get('/', [MemberController::class, 'index'])->name('members');
+Route::get('/member/create', [MemberController::class, 'create'])->name('member.create');
+Route::post('/member/create', [MemberController::class, 'store'])->name('member.store');
+
+Route::get('/member/edit/{id}', [MemberController::class, 'edit'])->name('member.edit');
+Route::put('/member/update/{id}', [MemberController::class, 'update'])->name('member.update');
+Route::delete('/member/delete/{id}', [MemberController::class, 'delete'])->name('member.delete');
+
+Route::get('/member/{id}', [MemberController::class, 'show'])->name('member.show');
 
 // Route::get('/post', function(){
 //     return response()->json([
@@ -54,7 +64,7 @@ Route::get('aa', function () {
 //     Route::post('/login', [UserController::class, 'handleLogin'])->name('login');
 // });
 
-// // Groupe de route qui ne sot dispos que quand le User est authentifié
+// // Groupe de route qui ne sont dispos que quand le User est authentifié
 // Route::middleware(['auth'])->group(function () {
 //     Route::prefix('articles')->group(function () {
 //         Route::get('/{article}', [ArticleController::class, 'show'])->name('articles.show')->withoutMiddleware('auth');

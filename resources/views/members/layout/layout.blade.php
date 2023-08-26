@@ -10,9 +10,9 @@
     @vite('resources/css/app.css')
 </head>
 
-<body>
+<body class="bg-gray-900">
 
-    @include('partials.navbar')
+    @include('members.partials.navbar')
     @yield('content')
 
 </body>
