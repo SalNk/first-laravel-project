@@ -21,6 +21,9 @@ class MemberFactory extends Factory
             'email' => $this->faker->email,
             'title' => $this->faker->jobTitle(),
             'phone_number' => $this->faker->phoneNumber,
+            'user_profile' => $this->faker->imageUrl,
+            'post_img' => $this->faker->imageUrl,
+            'post_sentence' => $this->faker->sentence,
         ];
     }
 }

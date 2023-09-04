@@ -72,6 +72,7 @@ class MemberController extends Controller
 
         $member->update([
             'name' => $request->name,
+            //dans la $request->name se trouve la valeur qui a été saisi par le user
             'email' => $request->email,
             'title' => $request->title,
             'phone_number' => $request->phone_number,
@@ -80,7 +81,7 @@ class MemberController extends Controller
 
         $member->save();
 
-        return redirect('/');   
+        return redirect('/');
     }
 
     public function delete($id, Request $request)
@@ -89,6 +90,24 @@ class MemberController extends Controller
 
         $member->delete();
 
-        return redirect('/');   
+        return redirect('/');
+    }
+
+    public function blog()
+    {
+        $members = Member::all();
+
+        return view('members.blog', [
+            'members' => $members
+        ]);
+    }
+
+    public function showPost($id)
+    {
+        $member = Member::findOrFail($id);
+
+        return view('members.post', [
+            'member' => $member
+        ]);
     }
 }

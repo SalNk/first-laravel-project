@@ -30,9 +30,16 @@ Route::get('/', [MemberController::class, 'index'])->name('members');
 Route::get('/member/create', [MemberController::class, 'create'])->name('member.create');
 Route::post('/member/create', [MemberController::class, 'store'])->name('member.store');
 
+Route::get('/blog', [MemberController::class, 'blog'])->name('blog');
+
+
 Route::get('/member/edit/{id}', [MemberController::class, 'edit'])->name('member.edit');
 Route::put('/member/update/{id}', [MemberController::class, 'update'])->name('member.update');
 Route::delete('/member/delete/{id}', [MemberController::class, 'delete'])->name('member.delete');
+Route::get('/post/{id}', [MemberController::class, 'showPost'])->name('post.show');
+
+
+
 
 Route::get('/member/{id}', [MemberController::class, 'show'])->name('member.show');
 

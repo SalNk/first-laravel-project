@@ -4,8 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-return new class extends Migration
-{
+return new class extends Migration {
     /**
      * Run the migrations.
      */
@@ -17,6 +16,9 @@ return new class extends Migration
             $table->string('email')->unique();
             $table->string('title');
             $table->string('phone_number', 20);
+            $table->string('user_profile');
+            $table->string('post_img');
+            $table->string('post_sentence');
             $table->timestamps();
         });
     }

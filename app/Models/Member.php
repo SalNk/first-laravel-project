@@ -13,6 +13,9 @@ class Member extends Model
         'name',
         'email',
         'title',
-        'phone_number'
+        'phone_number',
+        'user_profile',
+        'post_img',
+        'post_sentence'
     ];
 }
