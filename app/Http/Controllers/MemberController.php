@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Member;
 use Illuminate\Http\Request;
+use App\Models\Post;
 
 class MemberController extends Controller
 {
@@ -95,16 +96,18 @@ class MemberController extends Controller
 
     public function blog()
     {
-        $members = Member::all();
+        $posts = Post::all();
+        // dd( $posts);
 
         return view('members.blog', [
-            'members' => $members
+            'posts' => $posts
         ]);
     }
 
     public function showPost($id)
     {
         $member = Member::findOrFail($id);
+        // dd( $member->posts);
 
         return view('members.post', [
             'member' => $member
